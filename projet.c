@@ -3,11 +3,11 @@
 
 #define MAX 100 
 
-char titles[MAX][20];
-char authors[MAX][20];
-float prices[MAX];
+char titres[MAX][20];
+char auteurs[MAX][20];
+float prix[MAX];
 int quantities[MAX];
-int book_number = 0;
+int numbres_livres = 0;
 
 int main() {
     int n;
@@ -29,36 +29,35 @@ int main() {
         }
 
         if (n == 1) {
-            if (book_number >= MAX) {
+            if (numbres_livres >= MAX) {
                 printf("Bibliothèque pleine, impossible d'ajouter un nouveau livre.\n");
-                continue; 
             }
 
             printf("Entrer le titre du livre: ");
-            scanf("%s", titles[book_number]);
+            scanf("%s", titres[numbres_livres]);
 
             printf("Entrer l'auteur du livre: ");
-            scanf("%s", authors[book_number]);
+            scanf("%s", auteurs[numbres_livres]);
 
             printf("Entrer le prix du livre: ");
-            scanf("%f", &prices[book_number]);
+            scanf("%f", &prix[numbres_livres]);
 
             printf("Entrer la quantité du livre: ");
-            scanf("%d", &quantities[book_number]);
+            scanf("%d", &quantities[numbres_livres]);
 
-            book_number++;
+            numbres_livres++;
             printf("Livre ajouté avec succès.\n"); 
         } 
         else if (n == 2) {
-            if (book_number == 0) {
+            if (numbres_livres == 0) {
                 printf("Aucun livre dans la bibliothèque.\n");
-                continue; // Skip to the next iteration
+                continue; 
             }
 
             printf("Liste des livres:\n");
-            for (int i = 0; i < book_number; i++) {
+            for (int i = 0; i < numbres_livres; i++) {
                 printf("Titre: %s, Auteur: %s, Prix: %.2f, Quantité: %d\n",
-                    titles[i], authors[i], prices[i], quantities[i]);
+                    titres[i], auteurs[i], prix[i], quantities[i]);
             }
         } 
         else if (n == 3) {
@@ -66,11 +65,11 @@ int main() {
             printf("Entrer le titre du livre à rechercher: ");
             scanf("%s", titre);
 
-            for (int i = 0; i < book_number; i++) {
-                if (strcmp(titles[i], titre) == 0) {
+            for (int i = 0; i < numbres_livres; i++) {
+                if (strcmp(titres[i], titre) == 0) {
                     printf("Livre trouvé!\n");
                     printf("Titre: %s, Auteur: %s, Prix: %.2f, Quantité: %d\n",
-                        titles[i], authors[i], prices[i], quantities[i]);
+                        titres[i], auteurs[i], prix[i], quantities[i]);
                     break; 
                 }
             }
@@ -81,18 +80,18 @@ int main() {
             printf("Entrer le titre du livre à mettre à jour: ");
             scanf("%s", titre);
 
-            for (int i = 0; i < book_number; i++) {
-                if (strcmp(titles[i], titre) == 0) {
+            for (int i = 0; i < numbres_livres; i++) {
+                if (strcmp(titres[i], titre) == 0) {
                     printf("Livre trouvé! Entrez les nouvelles informations.\n");
                     
                     printf("Entrer le nouveau titre du livre: ");
-                    scanf("%s", titles[i]);
+                    scanf("%s", titres[i]);
                     
                     printf("Entrer le nouvel auteur du livre: ");
-                    scanf("%s", authors[i]);
+                    scanf("%s", auteurs[i]);
                     
                     printf("Entrer le nouveau prix du livre: ");
-                    scanf("%f", &prices[i]);
+                    scanf("%f", &prix[i]);
                     
                     printf("Entrer la nouvelle quantité du livre: ");
                     scanf("%d", &quantities[i]);
@@ -108,15 +107,15 @@ int main() {
             printf("Entrer le titre du livre à supprimer: ");
             scanf("%s", titre);
 
-            for (int i = 0; i < book_number; i++) {
-                if (strcmp(titles[i], titre) == 0) {
-                    for (int j = i; j < book_number - 1; j++) {
-                        strcpy(titles[j], titles[j + 1]);
-                        strcpy(authors[j], authors[j + 1]);
-                        prices[j] = prices[j + 1];
+            for (int i = 0; i < numbres_livres; i++) {
+                if (strcmp(titres[i], titre) == 0) {
+                    for (int j = i; j < numbres_livres - 1; j++) {
+                        strcpy(titres[j], titres[j + 1]);
+                        strcpy(auteurs[j], auteurs[j + 1]);
+                        prix[j] = prix[j + 1];
                         quantities[j] = quantities[j + 1];
                     }
-                    book_number--;
+                    numbres_livres--;
                     printf("Livre supprimé avec succès.\n");
                     break; 
                 }
@@ -124,7 +123,7 @@ int main() {
             printf("Livre non trouvé pour la suppression.\n");
         } 
         else if (n == 6) {
-            printf("Le nombre TOTAL des livres est: [%d]\n", book_number);
+            printf("Le nombre TOTAL des livres est: [%d]\n", numbres_livres);
         } 
         else {
             printf("Option invalide, veuillez réessayer.\n");
