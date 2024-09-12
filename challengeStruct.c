@@ -143,11 +143,12 @@
        
 // }
    /// exercice 5;
-   
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <string.h>
-// //exercice 3
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
 // typedef struct 
 // {
 //    char titre[10];
@@ -155,14 +156,18 @@
 //    int annee;
 //    }livres;
 //    void afficher(livres livre);
+//    void modifierDate(livres *livre);
 //    int main(){
-//        livres l1 = {"l'ile  de  trisaur","kamal",2000};
-//        afficher(l1);
-       
-       
+//        livres l1 = {"trisaur","kamal",2000};
+//        modifierDate(&l1);
+     
        
 // }
-// void afficher(livres livre){
-//     printf("le titre : %s \n l'auteur : %s \n l'annee : %d",livre.titre,livre.auteur, livre.annee);
+
+// void modifierDate(livres *livre){
+   
+//     printf("le nouveau date :");
+//    scanf("%d",&livre->annee);
+//        printf("le titre : %s \n l'auteur : %s \n l'annee : %d",livre->titre,livre->auteur, livre->annee);
 // }
    
